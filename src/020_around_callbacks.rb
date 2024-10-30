@@ -1,8 +1,12 @@
 class Child
   embedded_in :parent
-  after_save :do_something
+  around_save :do_something
 
   def do_something
     # ... something ...
+
+    yield
+
+    # ... something else ...
   end
 end
